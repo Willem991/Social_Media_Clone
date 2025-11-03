@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'simplesocial'
+    'simplesocial',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
