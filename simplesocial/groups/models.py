@@ -7,7 +7,7 @@ from django.urls import reverse
 
 # Create your models here.
 User = get_user_model()
-register = template.library()
+register = template.Library()
 
 class Group(models.Model):
     name = models.CharField(max_length=50, unique=True)
@@ -22,7 +22,7 @@ class Group(models.Model):
     def save(self,*args, **kwargs):
         self.slug = slugify(self.name)
         self.description_html = misaka.html(self.description)
-        super.save(*args, **kwargs)
+        super().save(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse("groups:single", kwargs={"slug": self.slug})
