@@ -29,7 +29,10 @@
                     <li><a href="">Post</a></li>
                     <li><a href="">Groups</a></li>
                     <li><a href="">Create Group</a></li>
-                    <li><a href="{% url "account:logout" %}">Logout</a></li>
+                    <form method="post" action="{% url "accounts:logout" %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-link">Logout</button>
+                    </form>
                 {% else %}
                     <li><a href="">Groups</a></li>
                     <li><a href="{% url "accounts:login" %}">Log In</a></li>
